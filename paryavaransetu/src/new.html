@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        let city;
+city=prompt("enter city here:");
+const URL=`https://api.ambeedata.com/latest/by-city?city=${city}`
+async function aqiCall(){
+    const data=await fetch(URL,{
+        "method":"GET",
+        "headers":{
+            "x-api-key":"2cda2ae88ee8bc75f8dc5c269bf72c647c5c26e6f7681381fb853414c695751f",
+            "content-type":"application/json"
+        }
+    });
+    const res=await data.json();
+    console.log(res);
+    console.log(typeof res);
+}
+aqiCall();
+    </script>
+</body>
+</html>
